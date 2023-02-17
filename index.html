@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reader Survey</title>
+
+    <!-- fonts  -->
+    <link rel="stylesheet" href="https://use.typekit.net/nfx2nvg.css">
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+        }
+
+        header {
+            background-color: #000;
+        }
+
+        .color {
+            color: rgb(248, 215, 32);
+        }
+
+        .header-wrapper {
+            max-width: calc(100% - 50px);
+            width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .header-wrapper p {
+            color: #fff;
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .logo {
+            width: 240px;
+        }
+
+        #wrapper {
+            margin: 0 auto;
+            width: 800px;
+            max-width: 100%;
+        }
+
+        h1,
+        h2,
+        h3 {
+            text-align: center;
+            font-family: 'adobe-caslon-pro', Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .page-title {
+            font-size: clamp(2.25rem, 5vw, 3rem);
+            line-height: 1.1;
+            margin: 2rem auto 1rem;
+        }
+
+        .page-title br {
+            display: none;
+        }
+
+        div {
+            font-family: 'sofia-pro', Helvetica, sans-serif;
+        }
+
+        .chart-wrapper {
+            max-width: calc(100% - 36px);
+            border: 3px solid #000;
+            padding: 15px;
+            margin-bottom: 50px;
+        }
+
+        .question-text {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            margin: 1rem auto;
+            line-height: 1.1;
+        }
+
+        .headers-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            margin-top: 1rem;
+        }
+
+        .answer-response-grid {
+            display: grid;
+            grid-template-columns: 4fr 1fr 1fr;
+            align-items: start;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .answer-response-grid * {
+            padding: 7.5px 10px;
+        }
+
+        .answers-header,
+        .responses-header,
+        .total {
+            background: #ccc;
+            padding: 7.5px 10px;
+            font-weight: 700;
+        }
+
+        .total {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .answer-response-grid span:nth-of-type(1) {
+            justify-self: start;
+        }
+
+        .answer-response-grid span:nth-of-type(2),
+        .total-responses {
+            justify-self: end;
+        }
+
+        @media screen and (max-width: 550px) {
+            .page-title br {
+                display: inline-block;
+            }
+        }
+
+        /* footer styles  */
+        footer {
+            background-color: #000;
+            max-width: 100%;
+            width: 100%;
+        }
+
+        .color {
+            color: rgb(234, 87, 29);
+        }
+
+        li,
+        .site-footer__copyright,
+        .site-footer__header {
+            font-family: 'sofia-pro', Helvetica, sans-serif;
+            color: #fff;
+        }
+
+        .footer-grid {
+            max-width: calc(100% - 40px);
+            width: 1200px;
+            margin: auto;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 35px 20px 20px;
+        }
+
+        .site-footer__copyright {
+            font-size: .75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .site-footer__header {
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: .9rem;
+        }
+
+        .site-footer__links {
+            list-style: none;
+            margin-left: 0;
+            padding-left: 0;
+            margin-bottom: 0;
+        }
+
+        .site-footer__links li {
+            margin-bottom: 20px;
+            font-size: .85rem;
+        }
+
+        .site-footer__section--free .site-footer__links {
+            column-count: 2;
+        }
+
+        .outside {
+            margin-left: 0;
+        }
+
+        .footer--company,
+        .footer--policy,
+        .footer--free {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer--company:hover,
+        .footer--policy:hover,
+        .footer--free:hover {
+            text-decoration: underline;
+        }
+
+        @media screen and (max-width: 850px) {
+            .footer-grid {
+                display: block;
+            }
+
+            .site-footer__header {
+                margin-top: 2em;
+            }
+
+            .site-footer__links li {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-wrapper">
+            <p>COMPANY NAME/LOGO</p>
+        </div>
+    </header>
+
+    <h1 class="page-title"><strong><em>PUBLICATION NAME</em></strong> <br />Reader Survey</h1>
+
+    <div id="wrapper"></div>
+
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="site-footer__section site-footer__section--legal">
+                <div class="site-footer__copyright"><span class="copyright-symbol">&copy;</span> <!-- -->2023
+                    <!-- --> COMPANY NAME, LLC.</div>
+            </div>
+
+            <div class="site-footer__section site-footer__section--company">
+                <div class="site-footer__header">Company</div>
+
+                <ul class="site-footer__links unstyled">
+                    <li><a class="outside footer--company" href="">About Us</a>
+                    </li>
+                    <li><a class="outside footer--company" href="">Contact
+                            Us</a></li>
+                    <li><a class="outside footer--company" href="">Help
+                            Center</a></li>
+                    <li><a class="outside footer--company" href="">Whitelist
+                            Us</a></li>
+                </ul>
+            </div>
+
+            <div class="site-footer__section site-footer__section--policy">
+                <div class="site-footer__header">Policies</div>
+
+                <ul class="site-footer__links unstyled">
+                    <li><a class="outside footer--policy" href="">Privacy
+                            Policy</a></li>
+                    <li><a class="outside footer--policy" href="">Terms
+                            &amp; Condtions</a></li>
+                    <li><a class="outside footer--policy"
+                            href="">SMS Terms &amp; Condtions</a>
+                    </li>
+                    <li><a class="outside footer--policy"
+                            href=""
+                            target="_blank">Do Not Sell My Information</a></li>
+                </ul>
+            </div>
+
+            <div class="site-footer__section site-footer__section--free">
+                <div class="site-footer__header">Free Publications</div>
+
+                <ul class="site-footer__links unstyled">
+                    <li><a class="outside footer--free" href="" target="_blank">NEWSLETTER NAME</a></li>
+                    <li><a class="outside footer--free" href="" target="_blank">NEWSLETTER NAME</a></li>
+                    <li><a class="outside footer--free" href="" target="_blank">NEWSLETTER NAME</a></li>
+                    <li><a class="outside footer--free" href="" target="_blank">NEWSLETTER NAME</a></li>
+                    <li><a class="outside footer--free" href="" target="_blank">NEWSLETTER NAME</a></li>
+                    <li><a class="outside footer--free" href="" target="_blank">NEWSLETTER NAME</a></li>
+                    <li><a class="outside footer--free" href="" target="_blank">NEWSLETTER NAME</a></li>
+                    <li><a class="outside footer--free" href="" target="_blank">NEWSLETTER NAME</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"
+        integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var questions = [{
+                questionNum: 1,
+                questionText: "Q1: I have been subscribed to <strong><em>PUBLICATION NAME</em></strong> for:",
+                answers: ["0 to 6 months", "6 months to 1 year", "Just a few days"],
+                responses: [1041, 455, 95]
+            }, {
+                questionNum: 2,
+                questionText: "Q2: I read the updates and alerts:",
+                answers: ["Each time I receive a new update or alert",
+                    "More than half the times that I receive a new update or alert",
+                    "Less than half the times that I receive a new update or alert",
+                    "I never read the updates or alerts"
+                ],
+                responses: [1164, 336, 77, 20]
+            }, {
+                questionNum: 3,
+                questionText: "Q3: Overall, I find the updates and alerts:",
+                answers: ["Extremely useful", "Useful", "Not useful",
+                    "I don't read the updates or alerts"
+                ],
+                responses: [863, 636, 71, 19]
+            }, {
+                questionNum: 4,
+                questionText: "Q4: As compared to other products I've tried outside of COMPANY NAME, <strong><em>PUBLICATION NAME</em></strong> is:",
+                answers: ["Much better", "About the same", "Worse", "I haven't tried other products"],
+                responses: [960, 379, 60, 191]
+            }, {
+                questionNum: 5,
+                questionText: 'Q5: Before subscribing to <strong><em>PUBLICATION NAME</em></strong>, I would rate my knowledge level about finance and investing as:',
+                answers: ["Extremely knowledgeable", "Knowledgeable", "Somewhat knowledgeable",
+                    "Not knowledgeable at all"
+                ],
+                responses: [161, 717, 590, 125]
+            }, {
+                questionNum: 6,
+                questionText: "Q6: Since subscribing to receive <strong><em>PUBLICATION NAME</em></strong>, I would rate my knowledge level about finance and investing as:",
+                answers: ["Extremely knowledgeable", "Knowledgeable", "Somewhat knowledgeable",
+                    "Not knowledgeable at all"
+                ],
+                responses: [312, 917, 329, 34]
+            }, {
+                questionNum: 7,
+                questionText: "Q7: The information in <strong><em>PUBLICATION NAME</em></strong> is easy to follow:",
+                answers: ["Yes", "No"],
+                responses: [1454, 136]
+            }, {
+                questionNum: 8,
+                questionText: "Q8: My portfolio has gone up by __% since subscribing to <strong><em>PUBLICATION NAME</em></strong>:",
+                answers: ["0 to 10%", "Between 10 and 50%", "Between 50 and 100%", "More than 100%"],
+                responses: [1156, 306, 67, 26]
+            }, {
+                questionNum: 9,
+                questionText: "Q9: I feel that <strong><em>PUBLICATION NAME</em></strong> has increased my knowledge about making investments:",
+                answers: ["Yes", "No"],
+                responses: [1386, 198]
+            }, {
+                questionNum: 10,
+                questionText: "Q10: The amount that I now make on investments is greater than before I begain using <strong><em>PUBLICATION NAME</em></strong>:",
+                answers: ["Yes", "No"],
+                responses: [890, 675]
+            }
+        ];
+
+            const questionData = questions;
+
+            questionData.forEach(question => {
+
+                const wrapper = document.querySelector("#wrapper");
+
+                // chart wrapper 
+                const chartWrapper = document.createElement("div");
+                chartWrapper.classList.add("chart-wrapper");
+                chartWrapper.setAttribute("id", `#question-${question.questionNum}`);
+                wrapper.appendChild(chartWrapper);
+
+                // question text 
+                const questionTexth2 = document.createElement("h2");
+                questionTexth2.classList.add("question-text");
+                questionTexth2.innerHTML = question.questionText;
+                chartWrapper.appendChild(questionTexth2);
+
+                // create each chartjs chart 
+                const chart = document.createElement("div");
+                const chartCanvas = document.createElement("canvas");
+                chartCanvas.setAttribute("id", `chart${question.questionNum}`);
+                chartWrapper.appendChild(chart);
+                chart.appendChild(chartCanvas);
+
+                // array of colors for chart bars and borders (the random colors were very ugly)
+                const colors = [
+                    'rgba(0,128,1,.6)',
+                    'rgba(23,0,255,.6)',
+                    'rgba(255,165,2,.6)',
+                    'rgba(220,51,56,.6)',
+                    'rgba(0,128,128,.6)',
+                    'rgba(204,29,234,.6)',
+                    'rgba(248,215,32,.6)'
+                ];
+
+                const borders = [
+                    'rgba(0,128,1,1)',
+                    'rgba(23,0,255,1)',
+                    'rgba(255,165,2,1)',
+                    'rgba(220,51,56,1)',
+                    'rgba(0,128,128,1)',
+                    'rgba(204,29,234,1)',
+                    'rgba(248,215,32,1)'
+                ];
+
+                // randomize the chart colors 
+                const labels = question.answers;
+                const backgroundcolor = [];
+                const bordercolor = []
+                for (c = 0; c < labels.length; c++) {
+                    backgroundcolor.push(colors[c % colors.length]);
+                    bordercolor.push(borders[c % colors.length]);
+                };
+
+                // create new arrays with the appropriate number of colors and border colors 
+                const chartAnswers = [];
+                for (d = 0; d < question.answers.length; d++) {
+                    if (question.answers[d].length > 25) {
+                        const shortenedAnswers = question.answers[d].substring(0, 25) + "...";
+                        chartAnswers.push(shortenedAnswers);
+                    } else {
+                        chartAnswers.push(question.answers[d]);
+                    }
+                };
+
+                // create each chartjs chart dynamically 
+                new Chart(`chart${question.questionNum}`, {
+                    type: 'bar',
+                    data: {
+                        labels: chartAnswers,
+                        datasets: [{
+                            label: 'Readers',
+                            data: question.responses,
+                            fill: false,
+                            borderWidth: 3,
+                            // automate to use random color list
+                            backgroundColor: backgroundcolor,
+                            borderColor: bordercolor
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            legend: {
+                                display: false,
+                            }
+                        },
+                        indexAxis: 'y',
+                    }
+                });
+
+                // header grid 
+                const headersGrid = document.createElement("div");
+                headersGrid.classList.add("headers-grid");
+                chartWrapper.appendChild(headersGrid);
+
+                // answer header
+                const answersHeader = document.createElement("div");
+                answersHeader.classList.add("answers-header");
+                const answersHeaderCopy = document.createTextNode("Answer Choices");
+                answersHeader.appendChild(answersHeaderCopy);
+                headersGrid.appendChild(answersHeader);
+
+                // response header
+                const responsesHeader = document.createElement("div");
+                responsesHeader.classList.add("responses-header");
+                const responsesHeaderCopy = document.createTextNode("Responses");
+                responsesHeader.appendChild(responsesHeaderCopy);
+                headersGrid.appendChild(responsesHeader);
+
+                let answersArr = question.answers;
+                for (let i = 0; i < answersArr.length; i++) {
+
+                    // answer response grid 
+                    const answerResponseGrid = document.createElement("div");
+                    answerResponseGrid.classList.add("answer-response-grid");
+                    chartWrapper.appendChild(answerResponseGrid);
+
+                    // answer text
+                    let answerText = document.createElement("div");
+                    answerResponseGrid.appendChild(answerText);
+                    answerText.innerHTML = answersArr[i];
+
+                    // answer percentage
+                    let answerPercentage = document.createElement("span");
+                    answerResponseGrid.appendChild(answerPercentage);
+
+                    const initialValue = 0;
+                    const totalResponses = parseInt(question.responses.reduce((accumulator,
+                            currentValue) =>
+                        accumulator + currentValue, initialValue));
+
+                    let percentage = ((question.responses[i] / totalResponses) * 100).toFixed(
+                        2) + "%";
+                    answerPercentage.innerHTML = percentage;
+
+                    // answer number 
+                    let answerNumbers = document.createElement("span");
+                    answerResponseGrid.appendChild(answerNumbers);
+                    answerNumbers.innerHTML = question.responses[i];
+                };
+
+                // total 
+                const total = document.createElement("div");
+                total.classList.add("total");
+                chartWrapper.appendChild(total);
+
+                const totalHeader = document.createElement("div");
+                const totalCopy = document.createTextNode("Total Responses");
+                total.appendChild(totalHeader);
+                totalHeader.appendChild(totalCopy);
+
+                const totalNumber = document.createElement("div")
+                totalNumber.classList.add("total-responses");
+                total.appendChild(totalNumber);
+
+                const initialValue = 0;
+                const totalResponses = parseInt(question.responses.reduce((accumulator,
+                        currentValue) =>
+                    accumulator + currentValue, initialValue));
+
+                totalNumber.innerHTML = totalResponses;
+            });
+
+        });
+    </script>
+</body>
+
+</html>
